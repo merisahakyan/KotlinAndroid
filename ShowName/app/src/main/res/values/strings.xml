@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ShowName</string>
+    <string name="showId">Show</string>
+    <string name="textView">Enter your name!</string>
+</resources>
