@@ -9,10 +9,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() , View.OnClickListener {
 
-    val marsGravity:Float = 0.38f
-    val venusGravity:Float = 0.91f
-    val jupiterGravity:Float = 2.34f
-    var weight:Double=0.0
+    private val marsGravity:Float = 0.38f
+    private val venusGravity:Float = 0.91f
+    private val jupiterGravity:Float = 2.34f
+    private var weight:Double=0.0
     var name:String=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +22,13 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
 
         showId.setOnClickListener{
             name = if(name=="")  "Earth"  else  name
-            weight = if(weight==0.0) if(TextUtils.isEmpty(weightId.text.toString())) 0.0 else weightId.text.toString().toDouble() else weight
+            weight = if(weight==0.0)
+                         if(TextUtils.isEmpty(weightId.text.toString()))
+                             0.0
+                         else
+                             weightId.text.toString().toDouble()
+                     else
+                         weight
             resultId.text="Weight is ${weight.format(2).toString()} on $name"
         }
 
@@ -61,11 +67,11 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
 
     private fun calculateWeight(w:Double, checkBox:CheckBox , name:String)  {
         this.name=name
-        when(checkBox.id){
-            R.id.marsCheckbox -> weight=marsGravity*w
-            R.id.venusCheckbox -> weight=venusGravity*w
-            R.id.jupiterCheckbox -> weight=jupiterGravity*w
-            else -> weight=w
+        weight = when(checkBox.id){
+            R.id.marsCheckbox -> marsGravity*w
+            R.id.venusCheckbox -> venusGravity*w
+            R.id.jupiterCheckbox -> jupiterGravity*w
+            else -> w
         }
     }
     fun Double.format(digits:Int)=java.lang.String.format("%.${digits}f",this)
