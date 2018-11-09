@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CalculateWeight</string>
+    <string name="weight_title">Whats your weight on ...?</string>
+    <string name="showId">Show Weight</string>
+    <string name="marsCheckbox">Mars</string>
+    <string name="venusCheckbox">Venus</string>
+    <string name="jupiterCheckbox">Jupiter</string>
 </resources>
