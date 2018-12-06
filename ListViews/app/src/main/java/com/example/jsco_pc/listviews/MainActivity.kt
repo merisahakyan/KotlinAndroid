@@ -22,5 +22,4 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Id : $id  $itemName",Toast.LENGTH_LONG).show()
         }
     }
-    
 }
