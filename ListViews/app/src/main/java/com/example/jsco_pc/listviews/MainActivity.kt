@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         listView.adapter = namesAdapter
 
         listView.setOnItemClickListener { parent, view, position, id ->
-            var itemName=listView.getItemAtPosition(position).toString()
+            var itemName=listView.getItemAtPosition(position).toString()  
             Toast.makeText(this, "Id : $id  $itemName",Toast.LENGTH_LONG).show()
         }
     }
